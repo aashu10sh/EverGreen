@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\PostModel;
+use Illuminate\Support\Facades\DB;
+
 
 class PostController extends Controller
 {
@@ -24,11 +27,19 @@ class PostController extends Controller
      */
     public function create(Request $request)
     {
-        return json_encode($request->all());
+//        return json_encode($request->all());
         //
-        $title = $request->title;
-        $content = $request->content;
-        
+        $title = $request->input('title');
+        $content = $request->input('content');
+        $posted_by = $request->session()->get('user')->id;
+        // $this->validate(['title'=>'required','content'=>'required' ])
+        $data = ['title'=>$title,'content'=>$content,'posted_by'=>$posted_by,'likes'=>0];
+        PostModel::create($data);
+        $message = "Posted!";
+        return redirect("/dashboard")->with("message", $message);
+
+
+
     }
 
     /**
@@ -50,6 +61,10 @@ class PostController extends Controller
      */
     public function show($id)
     {
+        $post = PostModel::find($id);
+        $user = $post->user;
+        return view('post.showpost',compact('post','user'));
+
         //
     }
 

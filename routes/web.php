@@ -28,5 +28,6 @@ Route::post('/login',[UserController::class,'authenticate']);
 Route::get('/dashboard',[UserController::class,'dashboard'])->middleware('AuthMiddleware');
 Route::post('/logout',[UserController::class,'logout'])->middleware('AuthMiddleware');
 Route::get('/create',[PostController::class,'index'])->middleware('AuthMiddleware');
-Route::post('/create',[PostController::class,'create']);
+Route::post('/create',[PostController::class,'create'])->middleware('AuthMiddleware');
+Route::get('/post/{id}',[PostController::class,'show'])->middleware('AuthMiddleware');
 

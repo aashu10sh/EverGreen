@@ -11,4 +11,8 @@ class UserModel extends Model
     protected $primaryKey = 'id';
     protected  $fillable = ['name','username','password','email','phonenumber'];
     use HasFactory;
+
+    function posts(){
+        return $this->hasMany(PostModel::class, 'posted_by');
+    }
 }
