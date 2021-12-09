@@ -9,7 +9,7 @@
     <div>
         <span>{{ " Posted BY :: $user->username  $post->created_at" }}</span>
         <p>
-            {{ $post->content}}
+            {{  $post->content }}
         </p>
     </div>
 </div>

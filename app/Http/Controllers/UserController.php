@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PostModel;
 use Illuminate\Http\Request;
 use App\Models\UserModel;
 use Illuminate\Support\Facades\DB;
@@ -24,7 +25,8 @@ class UserController extends Controller
 
     public function dashboard()
     {
-        return view('dashboard');
+        $posts = PostModel::all();
+        return view('dashboard',compact('posts'));
     }
     public function register()
     {
