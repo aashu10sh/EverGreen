@@ -1,11 +1,11 @@
 <html lang="html">
-<head><title>Dashboard</title></head>
+<head><title>Dashboard | EverGreen. </title></head>
 <body style="background-color: green;">
 <div >
 	@if(session()->has('message'))
 		<div>{{ session()->get('message') }}</div>
 	@endif
-    <h1 style="color:white;">THIS IS DASHBOARD</h1>
+    <h1 style="color:white;">EverGreen.</h1>
     <div>
         <a style="color:white;" href="/create"> Create a Post</a>
     </div>

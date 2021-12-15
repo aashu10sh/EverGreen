@@ -30,4 +30,4 @@ Route::post('/logout',[UserController::class,'logout'])->middleware('AuthMiddlew
 Route::get('/create',[PostController::class,'index'])->middleware('AuthMiddleware');
 Route::post('/create',[PostController::class,'create'])->middleware('AuthMiddleware');
 Route::get('/post/{id}',[PostController::class,'show'])->middleware('AuthMiddleware');
-
+Route::get('/@{username}',[PostController::class,'profile'])->middleware('AuthMiddleware');

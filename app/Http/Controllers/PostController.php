@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\UserModel;
 use Illuminate\Http\Request;
 use App\Models\PostModel;
 use Illuminate\Support\Facades\DB;
@@ -66,6 +67,13 @@ class PostController extends Controller
         return view('post.showpost',compact('post','user'));
 
         //
+    }
+    public function profile(Request $request, $username)
+    {
+//        dd("THIS IS $username");
+        $user = UserModel::all()->where("username", $username)->first();
+        $posts = $user->posts;
+        return view('post.profile', ["user" => $user, "posts" => $posts]);
     }
 
     /**

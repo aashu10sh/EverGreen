@@ -7,7 +7,7 @@
 <div>
     <h1>{{" $post->title "}}</h1>
     <div>
-        <span>{{ " Posted BY :: $user->username  $post->created_at" }}</span>
+        <span> Posted BY :: <span><a href="{{"/@$user->username"}}">{{$user->username}}</a> </span> {{$post->created_at}}</span>
         <p>
             {{  $post->content }}
         </p>
