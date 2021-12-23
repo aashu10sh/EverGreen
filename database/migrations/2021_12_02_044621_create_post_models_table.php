@@ -19,6 +19,7 @@ class CreatePostModelsTable extends Migration
             $table->foreign('posted_by')->references('id')->on('user_models');
             $table->integer('likes');
             $table->string('title');
+            $table->string('image_path');
             $table->text('content');
             $table->timestamps();
         });

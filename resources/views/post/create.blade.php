@@ -14,7 +14,7 @@
 
             <h1>Create a post</h1>
 
-            <form action="" method="POST">
+            <form action="/create" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label for="title">Title <span class="require">*</span></label>
@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="form-group">
-                    <p><span class="require">*</span> - required fields</p>
+                    <p><span class="require"><input type="file" name="image"></span></p>
                 </div>
 
                 <div class="form-group">

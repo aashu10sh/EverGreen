@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class PostModel extends Model
 {
     use HasFactory;
-    protected $fillable = ['title','content','posted_by','likes'];
+    protected $fillable = ['title','content','posted_by','likes','image_path'];
 
     function user()
     {
