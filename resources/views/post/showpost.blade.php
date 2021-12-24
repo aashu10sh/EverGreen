@@ -11,7 +11,7 @@
         <p>
             {{  $post->content }}
         </p>
-        <img src="{{asset('storage/images')."/".$post->image_path}}">
+        <img src="{{asset('storage/images')."/".$post->image_path}}" style="width: 350px;height: 350px">
     </div>
 </div>
 </body>

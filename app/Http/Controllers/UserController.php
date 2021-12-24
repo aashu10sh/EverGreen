@@ -25,7 +25,7 @@ class UserController extends Controller
 
     public function dashboard()
     {
-        $posts = PostModel::all();
+        $posts = PostModel::all()->sortByDesc('id');
         return view('dashboard',compact('posts'));
     }
     public function register()
