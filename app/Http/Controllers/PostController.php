@@ -113,8 +113,16 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
+        
+        $validated = $request->validate([
+            'name'=>'required',
+            'email'=>'required|email|unique:user_models',
+            'phonenumber'=>'required',
+            'password'=>'required',
+            'username'=>'required|unique:user_models'
+        ]);
         //
     }
 
@@ -124,8 +132,15 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
+        // dd($request->input("to_delete"));
+        $to_del_id = $request->to_delete;
+
+        $post = PostModel::find($to_del_id);
+        $post->delete();
+        return redirect('/dashboard')->with('message',"Post Succesfully Deleted");
+
         //
     }
 }
