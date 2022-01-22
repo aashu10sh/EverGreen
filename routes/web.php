@@ -31,4 +31,5 @@ Route::get('/@{username}',[PostController::class,'profile'])->middleware('AuthMi
 Route::delete('/post/delete',[PostController::class,'destroy'])->middleware('AuthMiddleware');
 Route::get('/profile/edit',[UserController::class,'edit'])->middleware('AuthMiddleware');
 Route::put('/profile/edit',[UserController::class,'update'])->middleware('AuthMiddleware');
+Route::post('/create/comment/{id}',[PostController::class,'create_comment']);
 // TO DO 1. Make Profile Editable 2.Make Post Editable

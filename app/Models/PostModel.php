@@ -14,4 +14,8 @@ class PostModel extends Model
     {
         return $this->belongsTo(UserModel::class, 'posted_by');
     }
+    function comments()
+    {
+        return $this->hasMany(CommentModel::class,'posted_on');
+    }
 }

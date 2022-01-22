@@ -5,6 +5,9 @@
 </head>
 <body>
 <div>
+    @if(session()->has('message'))
+        <h2>{{session()->get('message')}}</h2>
+    @endif
     <h1>{{" $post->title "}}</h1>
     <div>
         <span> Posted BY :: <span><a href="{{"/@$user->username"}}">{{$user->username}}</a> </span> {{$post->created_at}}</span>
@@ -14,7 +17,6 @@
         <img src="{{asset('storage/images')."/".$post->image_path}}" style="width: 350px;height: 350px">
         {{-- <div> --}}
         @if($user->id == session()->get('user')->id)
-            <div>
         		<section>
         			<div>
         				<button onclick="editpost()">Edit Post</button>
@@ -26,9 +28,26 @@
         				</form>
         			</div>
         		</section>
-        	</div>
         @endif
-        
+        <section class='comment-section' >
+            <h3>All Comments</h3>
+            <section class="comments">
+                @foreach($post->comments as $comment)
+                    <div>
+                        <h4>{{$comment->user->username}}</h4>
+                        {{$comment->comment}}
+                        <span >:::::{{$comment->created_at}}</span>
+                    </div>
+                @endforeach
+            </section>
+            <form method="POST" action="/create/comment/{{$post->id}}">
+                @csrf
+                <input type="textarea" name="comment">
+                <button type="submit">Post Comment</button>
+            </form>
+
+        </section>
+
     </div>
 </div>
 </body>

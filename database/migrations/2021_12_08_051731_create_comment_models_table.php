@@ -18,6 +18,8 @@ class CreateCommentModelsTable extends Migration
             $table->foreignId("commented_by");
             $table->foreign('commented_by')->references('id')->on('user_models');
             $table->text('comment');
+            $table->foreignId('posted_on');
+            $table->foreign('posted_on')->references('id')->on('post_models');
             $table->timestamps();
         });
     }

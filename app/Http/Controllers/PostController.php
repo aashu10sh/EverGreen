@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CommentModel;
 use App\Models\UserModel;
 use Illuminate\Http\Request;
 use App\Models\PostModel;
@@ -61,6 +62,20 @@ class PostController extends Controller
 
 
     }
+    public function create_comment(Request $request ,$id)
+    {
+        $request->validate(['comment'=>'required|min:10|max:1000']);
+        $comment = $request->comment;
+        $commented_by = $request->session()->get('user')->id;
+        $data = [
+            'comment' =>$comment,
+            'commented_by'=>$commented_by,
+            'posted_on'=>$id
+            ];
+        CommentModel::create($data);
+        return back()->with('message',"Comment Posted");
+
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -115,7 +130,7 @@ class PostController extends Controller
      */
     public function update(Request $request)
     {
-        
+
         $validated = $request->validate([
             'name'=>'required',
             'email'=>'required|email|unique:user_models',

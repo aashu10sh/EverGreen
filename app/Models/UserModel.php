@@ -15,4 +15,8 @@ class UserModel extends Model
     function posts(){
         return $this->hasMany(PostModel::class, 'posted_by');
     }
+    function comments()
+    {
+        return $this->hasMany(CommentModel::class,'commented_by');
+    }
 }
