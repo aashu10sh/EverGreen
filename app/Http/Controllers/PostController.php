@@ -151,7 +151,10 @@ class PostController extends Controller
     {
         // dd($request->input("to_delete"));
         $to_del_id = $request->to_delete;
-
+        $comment_to_delete = $request->to_delete;
+        //$comments = 
+        CommentModel::where('posted_on',$comment_to_delete)->delete();
+        // $comments->each()->delete();
         $post = PostModel::find($to_del_id);
         $post->delete();
         return redirect('/dashboard')->with('message',"Post Succesfully Deleted");
