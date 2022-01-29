@@ -32,7 +32,7 @@
                 <input type="text" placeholder="Phone Number" required name="phonenumber">
                 <input type="text" placeholder="Email" required name="email">
                 <input type="password" placeholder="Password" name="password"/>
-                <button>login</button>
+                <button>Register</button>
                 <p class="message">Already Registered ? <a href="/login">Login</a></p>
             </form>
         </div>

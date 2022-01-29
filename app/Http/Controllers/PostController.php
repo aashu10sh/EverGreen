@@ -36,7 +36,7 @@ class PostController extends Controller
          $validated = $request->validate(
              [
                  "title"=>'required|max:1000',
-                 "content"=>'required|max:1000',
+                 "content"=>'required|max:10000',
                   "image"=>'required|image|mimes:jpg,png,jpeg,gif,svg'
              ]);
         $imageM = $request->file("image");
@@ -152,7 +152,7 @@ class PostController extends Controller
         // dd($request->input("to_delete"));
         $to_del_id = $request->to_delete;
         $comment_to_delete = $request->to_delete;
-        //$comments = 
+        //$comments =
         CommentModel::where('posted_on',$comment_to_delete)->delete();
         // $comments->each()->delete();
         $post = PostModel::find($to_del_id);
