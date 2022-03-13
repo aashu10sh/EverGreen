@@ -1,0 +1,23 @@
+body{
+	margin:0;
+}
+.username-container__main{
+	display: grid;
+	grid-auto-flow: row;
+	/*padding:1rem ;*/
+	align-items: center;
+	background-color: rgb(42, 218, 150);
+	/*margin-right: 3rem;*/
+}
+.username-main__main{
+	font-family: sans-serif;
+	font-size: 3rem;
+}
+
+.name-profile__container{
+	/*padding: 1em;*/
+	/*margin-left: 3em;*/
+	/*display: none;*/
+	/*color:red;*/
+	vertical-align: center;
+}
