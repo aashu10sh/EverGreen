@@ -62,6 +62,23 @@ class PostController extends Controller
 
 
     }
+    public function construction(Request $request)
+    {
+        echo "THIS FEATURE IS UNDER CONSTRUCTION";
+        return back()->with('message','This Feature is under construction, please check back later');
+
+    }
+    function show_construction()
+    {
+        sleep(5);
+        return redirect("/dashboard");
+    }
+
+    public function edit_profile(Request $request, $id)
+    {
+        // dd($request);
+        return redirect('/construction');
+    }
     public function create_comment(Request $request ,$id)
     {
         $request->validate(['comment'=>'required|min:10|max:1000']);

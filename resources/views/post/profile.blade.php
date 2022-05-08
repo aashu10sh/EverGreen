@@ -13,9 +13,9 @@
 			<h3 class="name-profile__main">{{$user->name }}</h3>
 		</div>
 	</div>
-<h4>{{"$user->username's Posts:"}}</h4>
+<h4 class='poster__username'>{{"$user->username's Posts:"}}</h4>
 @foreach($posts as $post)
-    <div style="margin:10px;">
+    <div  class='__post'>
         <a href="/post/{{$post->id}}">
             {{$post->title}}
         </a>

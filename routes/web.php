@@ -17,6 +17,7 @@ use \App\Http\Controllers\PostController;
 // AuthMiddleWare = Checks if user is Authenticated if so redirects to dashboard.
 
 
+
 Route::get('/',function(){return redirect('/login');})->middleware('CheckSession');
 Route::get('/register',[UserController::class,'register'])->middleware('CheckSession');
 Route::post('/register',[UserController::class,'store']);
@@ -33,3 +34,5 @@ Route::get('/profile/edit',[UserController::class,'edit'])->middleware('AuthMidd
 Route::put('/profile/edit',[UserController::class,'update'])->middleware('AuthMiddleware');
 Route::post('/create/comment/{id}',[PostController::class,'create_comment']);
 // TO DO 1. Make Profile Editable 2.Make Post Editable
+Route::get('/edit/{post_id}',[PostController::class,'edit_profile'])->middleware('AuthMiddleware');
+Route::get('construction',[PostController::class,'construction'])->middleware('AuthMiddleware');

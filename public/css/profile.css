@@ -1,23 +1,35 @@
 body{
-	margin:0;
+	/* 	margin:0; */
+}
+a{
+	all: unset;
 }
 .username-container__main{
 	display: grid;
 	grid-auto-flow: row;
-	/*padding:1rem ;*/
+	padding:1rem ;
 	align-items: center;
 	background-color: rgb(42, 218, 150);
-	/*margin-right: 3rem;*/
+	/* 	margin-left: 3rem; */
 }
 .username-main__main{
 	font-family: sans-serif;
 	font-size: 3rem;
 }
-
+	
 .name-profile__container{
-	/*padding: 1em;*/
-	/*margin-left: 3em;*/
-	/*display: none;*/
-	/*color:red;*/
-	vertical-align: center;
+/* 	padding: 1em; */
+/* margin-left: 3em; */
+/* 	display: none; */
+/* 	color:red; */
+vertical-align: center;
+}
+.poster__username{
+	margin: 1em;
+}
+.__post{
+	cursor: pointer;
+	text-decoration: none;
+	margin:10px;
+	color:rgb(42, 218, 150);;
 }

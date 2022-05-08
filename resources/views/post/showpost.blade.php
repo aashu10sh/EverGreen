@@ -24,7 +24,7 @@
         @if($user->id == session()->get('user')->id)
         		<section class="edit-delete-section">
         			<div>
-        				<button class="edit-button" onclick="editpost()">Edit Post</button>
+        				<button class="edit-button" onclick='window.location="/edit/{{$post->id}}"'>Edit Post</button>
                         <br>
         				<form method="POST" action="/post/delete">
         					<input type="hidden" name="to_delete" value="{{$post->id}}">
